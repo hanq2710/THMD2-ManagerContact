@@ -1,13 +1,19 @@
 package service;
 
 import data.ContactRepository;
+import data.IContactRepository;
 import data.entitis.Contact;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ContactService {
-    ContactRepository contactRepository = new ContactRepository();
+public class ContactService implements IContactService{
+    IContactRepository contactRepository = new ContactRepository();
+
+    public ContactService(IContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
+    }
+
     public ArrayList<Contact> displayContact() {
         ArrayList<Contact> contacts = contactRepository.displayContact();
         for (Contact a : contacts

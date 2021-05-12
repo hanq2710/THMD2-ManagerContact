@@ -1,13 +1,18 @@
 package com.company;
 
+import data.ContactRepository;
+import data.IContactRepository;
 import service.ContactService;
+import service.IContactService;
 
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        ContactService contactService = new ContactService();
+        IContactRepository contactRepository = new ContactRepository();
+        IContactService contactService = new ContactService(contactRepository);
+
 	// write your code here
         while (true) {
             System.out.println("Menu Contact");
@@ -16,6 +21,8 @@ public class Main {
             System.out.println("Number 3: Cập nhật danh bạ.");
             System.out.println("Number 4: Xóa danh bạ.");
             System.out.println("Number 5: Tìm kiếm danh bạ.");
+            System.out.println("Number 6: Đọc từ file.");
+            System.out.println("Number 7: Ghi từ file.");
             Scanner sc = new Scanner(System.in);
             switch (sc.nextInt()){
                 case 1:
@@ -35,6 +42,5 @@ public class Main {
                     break;
             }
         }
-
     }
 }

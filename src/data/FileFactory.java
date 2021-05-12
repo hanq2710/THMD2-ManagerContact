@@ -1,6 +1,5 @@
 package data;
 
-import data.entitis.Contact;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 
 public class FileFactory<E>  {
     // Đọc File
-    public ArrayList<E> readFile(String path) {
+    public ArrayList<E> readContact(String path) {
         File file = new File(path);
         ArrayList<E> arrayList = new ArrayList<>();
         FileInputStream fileInputStream = null;
